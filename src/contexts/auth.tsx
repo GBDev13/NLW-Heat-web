@@ -36,7 +36,8 @@ export function AuthProvider({ children }: AuthProvider) {
 
   async function signIn(githubCode: string) {
     const response = await api.post<AuthResponse>("authenticate", {
-      code: githubCode
+      code: githubCode,
+      platform: 'web'
     });
 
     const { token, user } = response.data;
